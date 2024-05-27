@@ -1,0 +1,187 @@
+<div class="HomePage">
+    <div class="backBlur">
+        <app-header>
+
+        </app-header>
+        <div class="centerBox">
+            <h1>I'm looking for...</h1>
+            <div class="box1">
+                <input type="text" placeholder="Enter a Job Description">
+                <div class="btn">
+                    <button><i class="fa-solid fa-magnifying-glass"></i> <p>Search</p></button>
+                </div>
+            </div>
+            <div class="box2">
+                <div class="checks">
+                    <input type="checkbox">&nbsp;Full Time
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox">&nbsp;Part time / Casual / Freelance
+                    <select>
+                        <option value="" disabled>Select Your Location</option>
+                        <option>Pune</option>
+                        <option>Mumbai</option>
+                        <option>Hyderabad</option>
+                        <option>Banglore</option>    
+                    </select>
+                </div>    
+            </div>
+            <button (click)="show=!show">Register</button>
+        </div>
+    </div>
+</div>
+<div class="formDetails" [ngStyle]="{'display':show ? 'block':'none'}">
+    <div class="title">
+        <h1>Register</h1> <i class="fa-regular fa-circle-xmark" (click)="showForm()"></i>
+    </div>
+    <form [formGroup]="registerForm" >
+       <div class="chooseImage">
+            <div class="image">
+                <img [src]="img1" alt="">
+            </div>
+            <h3>upload your photo</h3>
+            <input type="file" class="inputs" (change)="SelectFile($event)" name="img1" id="img1" formControlName="img1" >
+            <div [innerHTML]="msg" *ngIf="msg" class="error1"></div>
+          
+        </div>
+        <div class="allInputs">
+            <div class="input-fields">
+                <div class="boxed">
+                    <input type="text" placeholder="First Name" formControlName="fname" id="fname" name="fname">
+                    <div *ngIf="registerForm.get('fname')?.invalid && (registerForm.get('fname')?.dirty || registerForm.get('fname')?.touched)">
+                      <span class="error1" *ngIf="registerForm.get('fname')?.errors?.['required']">First Name is required.</span>
+                      <span class="error1" *ngIf="registerForm.get('fname')?.errors?.['invalidFirstName']">Only alphabetic characters are allowed, and the length should not exceed 20 characters.</span>
+                    </div>
+                </div>
+                <div class="boxed">
+                    <input type="text" placeholder="Last Name" formControlName="lname" name="lname" id="lname">
+                    <span class="error1" *ngIf="registerForm.controls['lname'].invalid && registerForm.controls['lname'].touched">Last Name is Required</span>
+                </div>
+                </div>
+            <div class="input-fields">
+                <div class="boxed">
+                    <input type="email" placeholder="Email" formControlName="email" name="email" id="email">
+                    <span class="error1" *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">Email is Required</span>
+                </div>
+                </div>
+            <div class="input-field-age">
+                <p>Age</p>
+                <input type="range" formControlName="age" min="20" max="60" name="age" id="age">
+                {{ registerForm.get('age')?.value }}
+                <!-- <span  *ngIf="registerForm.get('age')?.errors?.['required']">
+                    Age is required.
+                </span> -->
+            </div>
+            <div class="input-fields">
+                <div class="boxed">
+                    <input type="number" placeholder="(541) 754-3010" formControlName="phone" name="phone" id="phone">
+                    <span class="error1" *ngIf="registerForm.controls['phone'].invalid && registerForm.controls['phone'].touched">Mobile Number is Required</span>
+                </div>
+            </div>
+            <div class="input-fields">
+                <div class="boxed">
+                    <select formControlName="state" name="state" id="state">
+                        <option value="" disabled>Select State</option>
+                        <option>Maharashtra</option>
+                        <option>Madhya Pradesh </option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Arunachal Pradesh</option>
+                        <option>Assam</option>
+                        <option>Bihar</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Odisha</option>
+                    </select>
+                    <span class="error1" *ngIf="registerForm.controls['state'].invalid && registerForm.controls['state'].touched">State is Required</span>
+                </div>
+            </div>
+            <div class="input-fields">
+                <div class="boxed">
+                    <select formControlName="country" name="country" id="country">
+                        <option value="" disabled>Select Country</option>
+                        <option>India</option>
+                        <option>China </option>
+                        <option>United States</option>
+                        <option>Indonesia</option>
+                        <option>Pakistan</option>
+                        <option>Bangladesh</option>
+                        <option>Japan</option>
+                        <option>Iran</option>
+                        <option>Thailand</option>
+                        <option>France</option>
+                        <option>South Africa</option>
+                        <option>Italy</option>
+                    </select>
+                    <span class="error1" *ngIf="registerForm.controls['country'].invalid && registerForm.controls['country'].touched">Country is Required</span>
+                </div>
+            </div>
+
+            <div class="input-fields">
+                <div class="boxed">
+                    <select formControlName="addressType" id="addressType" name="addressType" >
+                        <option value="" disabled>Select Address</option>
+                        <option value="Home">Home</option>
+                        <option value="Company">Company</option>
+                    </select>
+                      
+                    <div *ngIf="registerForm.get('addressType')?.value === 'Home'">
+                        <input formControlName="address1" name="address1" id="address1" placeholder="Address 1">
+                        <!-- <span class="error1" *ngIf="registerForm.controls['address1'].invalid && registerForm.controls['address1'].touched">Home Address 1 is required</span> -->
+                        <input formControlName="address2" name="address2" id="address2" placeholder="Address 2">
+                        <!-- <span class="error1" *ngIf="registerForm.controls['address2'].invalid && registerForm.controls['address2'].touched">home Address 2 is required</span> -->
+                    </div>
+                        
+                    <div *ngIf="registerForm.get('addressType')?.value === 'Company'">
+                        <input formControlName="companyAddress1" name="companyAddress1" id="companyAddress1" placeholder="Company Address 1">
+                       
+                        <input formControlName="companyAddress2" name="companyAddress2" id="companyAddress2" placeholder="Company Address 2">
+                       
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="input-fields">
+                <div class="boxed">
+                   <div class="interest">
+                        <input type="text" placeholder="Hobbies" #task id="task" name="task" formControlName="task" >
+                        <button (click)="addTask(task.value)">Add</button>
+                   </div>
+
+                    <ul>
+                        <li *ngFor="let item of list">
+                            {{ item.name }}
+                            <i class="fa-solid fa-xmark" (click)="removeTask(item.id)"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="input-fields1">
+                <input type="checkbox" formControlName="checkBox">
+                <p>Subscribe to newsletter</p>
+            </div>
+            <div class="input-fields1">
+                <button>Cancle</button>
+                <button type="submit" (click)="onSubmit(registerForm.value)" id="registerForm">Submit</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="aboutus">
+    <h2>We're leaders in</h2>
+    <h1>Creative Digital Recruitment</h1>
+    <div class="line"></div>
+    <p>Based in Surry Hills, the creative hub of Sydney we are surrounded by creativity<br> and that reflects on the type of jobs we recruit for.</p>
+    <button>Find out more about us!</button>
+</div>
+<div class="jobs">
+    <p>Subscribe to our Job Seeker Mailing List</p>
+    <input type="email" placeholder="Enter Your Email Address">
+</div>
+<app-footer>
+    
+</app-footer>

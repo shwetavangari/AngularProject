@@ -1,0 +1,100 @@
+{
+  "users": [
+    {
+      "id": "f1f7",
+      "fname": "anjali",
+      "lname": "pqr",
+      "email": "shwetavangari27@gmail.com",
+      "age": 35,
+      "phone": 7658678664,
+      "state": "Madhya Pradesh",
+      "country": "Thailand",
+      "addressType": "Company",
+      "address1": "",
+      "address2": "",
+      "task": "dance",
+      "checkBox": true,
+      "companyAddress1": "kolkata",
+      "companyAddress2": "dds",
+      "img1": "C:\\fakepath\\test_validity_over.png"
+    },
+    {
+      "id": "6f2c",
+      "fname": "",
+      "lname": "",
+      "email": "",
+      "age": 20,
+      "phone": "",
+      "state": "",
+      "country": "",
+      "addressType": "",
+      "address1": "",
+      "address2": "",
+      "task": "",
+      "checkBox": "",
+      "companyAddress1": "",
+      "companyAddress2": "",
+      "img1": ""
+    },
+    {
+      "id": "acd7",
+      "fname": "",
+      "lname": "",
+      "email": "",
+      "age": 20,
+      "phone": "",
+      "state": "",
+      "country": "",
+      "addressType": "",
+      "address1": "",
+      "address2": "",
+      "task": "",
+      "checkBox": "",
+      "companyAddress1": "",
+      "companyAddress2": "",
+      "img1": ""
+    },
+    {
+      "id": "009e",
+      "fname": "shweta",
+      "lname": "vangari",
+      "email": "shweta@gmail.com",
+      "age": 20,
+      "phone": 1234589567,
+      "state": "Maharashtra",
+      "country": "China",
+      "addressType": "Company",
+      "address1": "solapur",
+      "address2": "gharkul",
+      "task": "cricket",
+      "checkBox": true,
+      "companyAddress1": "pune",
+      "companyAddress2": "pune2",
+      "img1": "C:\\fakepath\\test_validity_over.png"
+    },
+    {
+      "id": "8c84",
+      "fname": "Anjali",
+      "lname": "Tumma",
+      "email": "tumaa123@gmail.com",
+      "age": 26,
+      "phone": 8765432111,
+      "state": "Kerala",
+      "country": "China",
+      "addressType": "Company",
+      "address1": "",
+      "address2": "",
+      "task": "dance",
+      "checkBox": true,
+      "companyAddress1": "pune",
+      "companyAddress2": "kolkata1",
+      "img1": "C:\\fakepath\\WhatsApp Image 2023-01-03 at 12.43.14.jpg"
+    }
+  ],
+  "hobbies": [
+    {
+      "id": "0a86"
+    }
+  ],
+  "images": []
+}

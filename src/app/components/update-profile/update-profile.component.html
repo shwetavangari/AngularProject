@@ -1,0 +1,128 @@
+<div class="formDetails">
+    <div class="title">
+        <h1>Update User</h1> <i class="fa-regular fa-circle-xmark" routerLink="/user-profile"></i>
+    </div>
+    <form [formGroup]="registerForm" >
+       <div class="chooseImage">
+            <div class="image">
+                <img [src]="img1" alt="">
+            </div>
+            <h3>update your photo</h3>
+            <p></p>
+            <input type="file" class="inputs" (change)="SelectFile($event)" name="img1" id="img1" formControlName="img1" >
+            <div [innerHTML]="msg" *ngIf="msg" class="error1"></div>
+          
+        </div>
+        <div class="allInputs">
+            <div class="input-fields">
+                <div class="boxed">
+                    <input type="text" [(ngModel)]="users.fname" placeholder="First Name" formControlName="fname" id="fname" name="fname">
+                    
+                </div>
+                <div class="boxed">
+                    <input type="text" [(ngModel)]="users.lname" placeholder="Last Name" formControlName="lname" name="lname" id="lname">
+                   </div>
+                </div>
+            <div class="input-fields">
+                <div class="boxed">
+                    <input type="email" [(ngModel)]="users.email" placeholder="Email" formControlName="email" name="email" id="email">
+                </div>
+            </div>
+            <div class="input-field-age">
+                <p>Age</p>
+                <input type="range" [(ngModel)]="users.age" formControlName="age" min="20" max="60" name="age" id="age">
+                {{ registerForm.get('age')?.value }}
+               
+            </div>
+            <div class="input-fields">
+                <div class="boxed">
+                    <input type="number" [(ngModel)]="users.phone" placeholder="(541) 754-3010" formControlName="phone" name="phone" id="phone">
+                </div>
+            </div>
+            <div class="input-fields">
+                <div class="boxed">
+                    <select [(ngModel)]="users.state" formControlName="state" name="state" id="state">
+                        <option value="" disabled>Select State</option>
+                        <option>Maharashtra</option>
+                        <option>Madhya Pradesh </option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Arunachal Pradesh</option>
+                        <option>Assam</option>
+                        <option>Bihar</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Odisha</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-fields">
+                <div class="boxed">
+                    <select [(ngModel)]="users.country" formControlName="country" name="country" id="country">
+                        <option value="" disabled>Select Country</option>
+                        <option>India</option>
+                        <option>China </option>
+                        <option>United States</option>
+                        <option>Indonesia</option>
+                        <option>Pakistan</option>
+                        <option>Bangladesh</option>
+                        <option>Japan</option>
+                        <option>Iran</option>
+                        <option>Thailand</option>
+                        <option>France</option>
+                        <option>South Africa</option>
+                        <option>Italy</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-fields">
+                <div class="boxed">
+                    <select [(ngModel)]="users.addressType" formControlName="addressType" id="addressType" name="addressType" >
+                        <option value="" disabled >Select Address</option>
+                        <option value="Home">Home</option>
+                        <option value="Company">Company</option>
+                    </select>
+                      
+                    <div *ngIf="registerForm.get('addressType')?.value === 'Home'">
+                        <input [(ngModel)]="users.address1" formControlName="address1" name="address1" id="address1" placeholder="Address 1">
+                        <input [(ngModel)]="users.address2" formControlName="address2" name="address2" id="address2" placeholder="Address 2">
+                    </div>
+                        
+                    <div *ngIf="registerForm.get('addressType')?.value === 'Company'">
+                        <input [(ngModel)]="users.companyAddress1" formControlName="companyAddress1" name="companyAddress1" id="companyAddress1" placeholder="Company Address 1">
+                        <input [(ngModel)]="users.companyAddress2" formControlName="companyAddress2" name="companyAddress2" id="companyAddress2" placeholder="Company Address 2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-fields">
+                <div class="boxed">
+                   <div class="interest">
+                        <input type="text" [(ngModel)]="users.task" placeholder="Hobbies" #task id="task" name="task" formControlName="task" >
+                        <button (click)="addTask(task.value)">Add</button>
+                   </div>
+
+                    <ul>
+                        <li *ngFor="let item of list">
+                            {{ item.name }}
+                            <i class="fa-solid fa-xmark" (click)="removeTask(item.id)"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="input-fields1">
+                <input type="checkbox" formControlName="checkBox">
+                <p>Subscribe to newsletter</p>
+            </div>
+            <div class="input-fields1">
+                <button routerLink="/user-profile">Cancle</button>
+                <button type="submit" (click)="update()" id="registerForm">Update</button>
+            </div>
+
+        </div>
+    </form>
+</div>

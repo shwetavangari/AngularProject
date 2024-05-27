@@ -1,0 +1,34 @@
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+}
+.header .logo{
+    font-size: 1.5rem;
+}
+.header .navs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.header .navs a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    /* background-color: aqua; */
+    padding: 10px 5px;
+    border: 3px solid transparent;
+    transition: all ease .3s;
+    
+}
+.header span{
+    color: rgb(8, 176, 243);
+}
+.header .navs a:hover{
+    cursor: pointer;
+    border-bottom: 3px solid rgb(8, 176, 243);
+}

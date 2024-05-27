@@ -1,0 +1,43 @@
+<div class="aboutus">
+    <!-- SHA256:8q4livZvMXsu2RE25dKWhiNtb04tFExRJc82cjH1fQE Uma Gajul@LAPTOP-BNV1859A
+        SHA256:m7SvK6JA7RHe1mWMM2tQcQGerS9n3+CQJLX5vHtbBR8
+    -->
+    <app-header>
+        
+    </app-header>
+    <div class="userProfile">
+        <div class="boxes" *ngIf="user">
+            <div class="box1">
+                <h1>Profile</h1>
+                <!-- <img *ngIf="user && user.img1" [src]="user.img1" alt="Profile"> -->
+                <img src="../../../assets/profile.jpg">
+                
+                <p class="imgName">{{user.img1}}</p>
+                <div class="buttons">
+                    <button>Edit Photo</button>
+                    <button routerLink="/update-profile/{{user.id}}">Edit Profile</button>
+                </div>
+            </div>
+            <div class="box2"   >
+                <br><br><br>
+                <p> 
+                    <label>I'm {{ user.fname }} </label>
+                    <label> {{ user.lname }}</label>
+                    <label> and I'm above {{ user.age }}  years and </label>
+                    <label> you can send your emails to </label>
+                    <label style="color: blue;">{{ user.email }}.</label><br>
+                    <label> I live in the state of {{ user.state }}.</label>
+                    <label> I like to play {{user.task}}</label>
+                    <label> And please send me newsletter.</label>
+                    <label> Please reach out to me on my phone number {{ user.phone }} .</label>
+                    </p>
+                <button>I Agree</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <app-footer>
+
+    </app-footer>
